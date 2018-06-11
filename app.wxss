@@ -1,0 +1,49 @@
+
+page{min-height: 100%; background-color:#ededed;font-weight:400;font-style:normal;font-family:-apple-system-font,Helvetica Neue,sans-serif}
+input,page{font-size:30rpx}
+
+.font_small_1,.title .mark,.title.sub .mark,.title.sub .name{font-size:28rpx}
+.font_small_2{font-size:26rpx}
+
+/*通用标题*/
+.title{display:flex;padding:20rpx 26rpx;flex-direction:row;justify-content:flex-start;align-items:center;background:#fff;color:#000;border-bottom:2rpx solid #f5f5f5}
+.title .prefix{width:10rpx;height:40rpx;background:#00c2d8;margin-right:10rpx}
+.title .name{font-weight:700}
+.title .sign{color:#457dd7}
+.title .mark{flex-grow:1;color:#313131;text-align:right}
+.title.sub{padding:10rpx 25rpx; border-bottom:none}
+.title.sub .name{font-weight:400; }
+.title.sub .mark{color:#457dd7}
+.title:after{clear:both}
+
+/*通用内容*/
+.content{padding:10rpx 25rpx}
+.content .item{display:flex;padding:10rpx 0;height:50rpx;line-height:50rpx;flex-direction:row;justify-content:flex-start;align-items:center;border-bottom:2rpx solid #f5f5f5}
+.content .item:after{clear:both}
+.content .item .label{width:160rpx;text-align:right;white-space:nowrap}
+.content .item .input{width:500rpx;display:flex;flex-direction:row;justify-content:flex-start;align-items:center}
+.content .item .input input,
+.content .item .input picker,
+.content .item .input text,
+.content .item .input textarea,
+.content .item .input view{height:100%;line-height:100%;width:100%}
+.content .item .input picker{width:auto}
+.content .item .input text{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.content .item .input.text-right{text-align: right}
+.content .item.right-text .input{width:300rpx}
+.content .item.right-text .right{color:#00c2d8;text-align:right;padding-right:10rpx;flex-grow:1}
+.content .item.right-text .right view{text-align: right;width: 100%;}
+.content .item.right-img .input{width:450rpx}
+.content .item.right-img .right{text-align:right;padding-right:10rpx;flex-grow:1}
+.content .item.right-img .right image{width:45rpx;height:45rpx; vertical-align:middle;}
+.content .item.auto-height{height:auto}
+
+.hr{height:2rpx;background-color:#f5f5f5}
+.white{color:#ffffff}
+.black{color:#000000}
+.btn{margin:40rpx;height:90rpx;background-color:#3a9aec;color:#fff;font-size:32rpx;vertical-align:middle;line-height:90rpx}
+
+.footer{text-align:center;color:#999;padding:30rpx 0rpx;}
+.footer .text{font-size:26rpx;display:block}
+
+

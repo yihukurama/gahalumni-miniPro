@@ -1,0 +1,157 @@
+.head {
+  display: flex;
+  padding: 10rpx 25rpx 20rpx 25rpx;
+  background-color: #1b81e5;
+  color: #fff;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.head image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 140rpx;
+}
+
+.head .info {
+  padding-left: 20rpx;
+}
+
+.head .info text {
+  display: block;
+}
+
+.nav {
+  background: #fff;
+  color: #000;
+}
+
+.nav .title {
+  justify-content: space-between;
+}
+
+.nav .title .text {
+  font-weight: 700;
+}
+
+.nav .title {
+  clear: both;
+}
+
+.nav .main {
+  display: flex;
+  padding: 10rpx 25rpx;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.nav .main:after {
+  clear: both;
+}
+
+.nav .main .item {
+  width: 175rpx;
+  padding: 10rpx;
+}
+
+.nav .main .item navigator {
+  display: flex;
+  padding: 10rpx;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav .main .item navigator:after {
+  clear: both;
+}
+
+.nav .main .item navigator .icon {
+  width: 60%;
+}
+
+.tool {
+  margin-top: 18rpx;
+  background: #fff;
+  color: #000;
+}
+
+.tool .item .navigator {
+  display: flex;
+  padding: 16rpx 25rpx;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tool .item .navigator:after {
+  clear: both;
+}
+
+.tool .item .navigator .icon {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.tool .item .navigator .text {
+  padding-left: 10rpx;
+  flex-grow: 1;
+}
+
+.tool .item .navigator .right image {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.tool .item .navigator .right text {
+  padding-right: 10rpx;
+  color: #3a9aec;
+}
+
+.bindBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.bindBox .mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.bindBox .content {
+  padding: 25rpx;
+  box-sizing: border-box;
+  width: 460rpx;
+  height: 290rpx;
+  left: 150rpx;
+  top: 32%;
+  position: absolute;
+  background: #fff;
+  /* border: 1px solid #ccc; */
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.bindBox .btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bindBox .btn {
+  width: 45%;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin: 0;
+  display: block;
+}

@@ -1,0 +1,22 @@
+<!--登录图片-->
+<view class='login_title'>
+  <image src='../../libs/imgs/im_login_title.png'></image>
+</view>
+
+<!--登录表单-->
+<form>
+  <!--使用说明-->
+  <view class='explain font_small_1'>
+    <text>说明：</text>
+    <text>1、只适用国华纪念中学毕业的各届毕业生。</text>
+    <text>2、暂未与学校系统进行对接，以审核机制识别校友真实性。</text>
+    <text>3、收集的校友信息未经校友会允许绝不外露。</text>
+    <text>4、稳定后会赠送给校友会，后续功能由校友会统筹规划，希望有能力的校友积极参与，当前阶段：内测，请勿转发。</text>
+  </view>
+
+  <!--按钮-->
+  <button class="btn" loading="{{loginLoading}}" bindgetuserinfo="bindLogin" open-type="getUserInfo">授权登录</button>
+</form>
+
+<include src="../../template/footer.wxml" />
+

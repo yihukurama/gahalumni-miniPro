@@ -1,0 +1,70 @@
+<!--pages/caseSearch/caseSearch.wxml-->
+
+<!--查询条件-->
+<view class='search'>
+  <view class='content'>
+    <view class='item right-img'>
+      <view class='label'>校友姓名：</view>
+      <view class='input'>
+        <input class='black' placeholder='请输姓名（支持模糊查询）' placeholder-class='holder' value='{{acciPlate}}' bindinput='bindSearchInput'></input>
+      </view>
+      <view class='right'>
+        <image src='../../libs/imgs/im_search_car.png' bindtap='bindSearch'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--查询无结果1-->
+<view class='no-result' hidden='{{searchType!=1 || employees.length>0 }}'>
+  <view style='font-weight: bold'>暂无查询结果</view>
+  <view>1、暂支持校友姓名查询；</view>
+  <view>2、将增加界别筛选条件；</view>
+  <view>3、未认证校友不能查询校友信息，请等待认证；</view>
+</view>
+
+<!--统计数据-->
+<view class='count' hidden='{{employees.length==0}}'>
+  <view class='item' hidden='{{searchType!=3}}'>
+    <text>已认证</text>
+    <text>{{cases_statistics['80_1100']}}人</text>
+  </view>
+  <view class='item' hidden='{{searchType!=3}}'>
+    <text>未认证</text>
+    <text>{{cases_statistics['80_1000']}}人</text>
+  </view>
+</view>
+
+<!--查询结果-->
+<scroll-view class='result' scroll-y enable-back-to-top lower-threshold="80" bindscrolltolower="bindScrollToLower" style="height: {{scroll_view_height}}px;">
+  <block wx:for="{{employees}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+    <view class='item' data-case-index='{{index}}' bindtap='bindHandleCase'>
+      
+      <view class='row'>
+        <view>
+          <text>姓名:</text>
+          <text>{{item.realName}}</text>
+        </view>
+      </view>
+      <view class='row'>
+        <view>
+          <text>届别:</text>
+          <text>{{item.workAge}}</text>
+        </view>
+      </view>
+      <view class='row' bindtap='bindCall'>
+        <view>
+          <text>电话:</text>
+          <text catchtap='bindCall' data-phone-number='{{item.mobile}}' style='text-decoration:underline;color:#5BABEE'>{{item.mobile}}</text>
+        </view>
+      </view>
+      
+      <view class='row flex_between'>
+        <view>
+          <text>简介:</text>
+          <textarea wx:if="{{item.note}}" >{{item.note}}</textarea>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

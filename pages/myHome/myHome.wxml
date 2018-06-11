@@ -1,0 +1,4 @@
+<!--pages/myHome/myHome.wxml-->
+
+<web-view src="http://xyh.sdgh.net/index.aspx"></web-view>
+

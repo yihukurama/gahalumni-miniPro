@@ -1,0 +1,105 @@
+<!--首页头部-->
+<view class='head'>
+  <image src='{{userHeadImage}}'></image>
+  <view class="info font_small_1">
+    <text>机构：{{organization}}</text>
+    <text>部门：{{department}}</text>
+    <text>姓名：{{realName}}</text>
+    <text>编号：{{userCode}}</text>
+  </view>
+  <view  class='relevanceAccount' style='position: absolute;top:120rpx;right:30rpx;' bindtap='bindOpenBindBox'>{{ status ? '已认证' : '待认证'}}</view>
+ </view>
+
+
+<!--首页快捷入口-->
+<view class='nav'>
+  <view class='title'>
+    <text class="text">校友信息</text>
+    <text class="font_small_1">{{now_time}}</text>
+  </view>
+  <view class='main'>
+    <view class="item">
+      <navigator url="../myHome/myHome" open-type='navigate'>
+        <image class='icon' src='../../libs/imgs/im_item_kckp.png' mode='widthFix' />
+        <text>校友首页</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="../mySearch/mySearch?type=1">
+        <image class='icon' src='../../libs/imgs/im_item_search.png' mode='widthFix' />
+        <text>校友查询</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="../myDetail/myDetail">
+        <image class='icon' src='../../libs/imgs/im_item_sign.png' mode='widthFix' />
+        <text>基础信息</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="../myResume/myResume">
+        <image class='icon' src='../../libs/imgs/im_item_complete.png' mode='widthFix' />
+        <text>我的简介</text>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+
+<!--菜单栏 2-->
+<view class='tool'>
+  <view class='item'>
+    <view class='navigator' bindtap='bindCallService'>
+      <image class='icon' src='../../libs/imgs/im_service_center.png'></image>
+      <view class='text'>学校电话</view>
+      <view class='right'>
+        <text class="font_small_1" style='text-decoration:underline'>0757-26637111</text>
+      </view>
+    </view>
+  </view>
+  <view class='hr'></view>
+  <view class='item'>
+    <navigator class='navigator' url="./buildHistory/buildHistory">
+      <image class='icon' src='../../libs/imgs/im_help.png'></image>
+      <view class='text'>建设历史</view>
+      <view class='right'>
+        <image src='../../libs/imgs/im_right.png'></image>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<!--菜单栏 3-->
+<view class='tool'>
+  <view class='item'>
+    <view class='navigator' bindtap='bindRequestRefresh'>
+      <image class='icon' src='../../libs/imgs/im_clean_cache.png'></image>
+      <view class='text'>清理缓存</view>
+      <view class='right'>
+        <image src='../../libs/imgs/im_right.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='hr'></view>
+  <view class='item'>
+    <view class='navigator'>
+      <image class='icon' src='../../libs/imgs/im_version.png'></image>
+      <view class='text'>当前版本</view>
+      <view class='right'>
+        <text class="font_small_1">v0.0.1</text>
+      </view>
+    </view>
+  </view>
+  <view class='hr'></view>
+  <view class='item'>
+    <view class='navigator' bindtap='bindExit'>
+      <image class='icon' src='../../libs/imgs/im_exit.png'></image>
+      <view class='text'>退出登录</view>
+      <view class='right'>
+        <image src='../../libs/imgs/im_right.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<include src="../../template/footer.wxml" />

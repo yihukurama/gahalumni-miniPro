@@ -1,0 +1,12 @@
+<!--登录图片-->
+<form>
+  <view class='item'>
+    <textarea type='text' placeholder='请输入校友简介，从事哪方面工作，可以给校友们解答哪方面的问题，140字以内' bindinput="bindinput" data-input-member='note'  value='{{note}}' confirm-type='next' ></textarea>
+  </view>
+
+  <!--按钮-->
+  <button class="btn" loading="{{loginLoading}}" bindtap="formSubmit">提 交</button>
+</form>
+
+<include src="../../template/footer.wxml" />
+
