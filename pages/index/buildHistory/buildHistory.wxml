@@ -1,5 +1,5 @@
 <!--pages/index/buildHistory/buildHistory.wxml-->
   <view  style='text-align:center;verticle-align:middle'>
-    <text>2018年6月 邓帅 V1.0</text>
+    <text>2018年6月 邓帅 V1.0.0</text>
   </view>
 
