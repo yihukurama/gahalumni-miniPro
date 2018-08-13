@@ -21,7 +21,7 @@
     <view class="item">
       <navigator url="../myHome/myHome" open-type='navigate'>
         <image class='icon' src='../../libs/imgs/im_item_kckp.png' mode='widthFix' />
-        <text>校友首页</text>
+        <text>建设计划</text>
       </navigator>
     </view>
     <view class="item">
@@ -80,6 +80,7 @@
       </view>
     </view>
   </view>
+  
   <view class='hr'></view>
   <view class='item'>
     <view class='navigator'>

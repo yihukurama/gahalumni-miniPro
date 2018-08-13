@@ -1,6 +1,6 @@
 <!--登录图片-->
 <view class='login_title'>
-  <image src='../../libs/imgs/im_login_title.png'></image>
+  <image></image>
 </view>
 
 <!--登录表单-->

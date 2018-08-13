@@ -3,9 +3,10 @@
 const hosts = {
   comm: {
 
-    host: 'http://192.168.1.118:8082',
-    host_static: 'http://192.168.1.118',
-
+    //host: 'http://192.168.1.118:8082',
+    //host_static: 'http://192.168.1.118',
+    host: 'https://www.ghxyh.cn/api',
+    host_static: 'https://www.ghxyh.cn',
   },
 }
 

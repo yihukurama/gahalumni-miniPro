@@ -8,10 +8,10 @@
 /*表单*/
 form .item{display:flex;margin-right:50rpx;margin-left:50rpx;padding-top:36rpx;padding-bottom:10rpx;flex-direction:row;align-items:center;border-bottom:2rpx solid #4a5a71}
 form .item .icon{width:48rpx;height: 48rpx;}
-form .item .input{margin-left:20rpx;flex-grow:1;}
+
 form .item .right{width:240rpx;text-align: right;}
 form .item .right .split{padding:0 10rpx;color:#4a5a71}
-form .item .right .text{color:#3a9aec;}
+form .item text{text-align:right;width: 200rpx}
 
 /*表单备注*/
 form .explain{padding:30rpx 70rpx;color:#b8b8b5;}

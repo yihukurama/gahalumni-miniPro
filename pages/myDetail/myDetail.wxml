@@ -3,27 +3,28 @@
   <view class='item'>
     <picker bindchange="bindDepChange" value="{{departmentIndex}}" range="{{departmentNames}}">
       <view class="picker">
-        校友会：{{departmentNames[departmentIndex]}}
+        所在组织：{{department}}
       </view>
     </picker>
   </view>
   <view class="item">
     <picker fields="year" mode="date" value="{{date}}" start="2005-01-31" end="2018-01-31" bindchange="bindDateChange">
       <view class="picker">
-        入学年份：{{workAge}}
+        入校年份：{{workAge}}
       </view>
     </picker>
   </view>
   <view class='item'>
     <text>真实姓名：</text>
-    <input class='input' type='text' placeholder='请输入真实姓名' maxlength='11' bindinput="bindinput"  value='{{realName}}' data-input-member='realName' confirm-type='next'></input>
+    <input class='input' type='text' placeholder='请输入真实姓名' maxlength='11' bindinput="bindinput"  value='{{realName}}' data-input-member='realName' confirm-type='next'>
+    </input>
   </view>
   <view class='item'>
-    <text>条形码：</text>
+    <text>在校编码：</text>
     <input class='input' type='number' placeholder='请输入条形码' maxlength='11' bindinput="bindinput" data-input-member='code' value='{{code}}' confirm-type='next'></input>
   </view>
   <view class='item'>
-    <text>手机号：</text>
+    <text>联系手机：</text>
     <input class='input' type='number' placeholder='请输入手机号' maxlength='11' bindinput="bindinput" data-input-member='phoneNo'  value='{{phoneNo}}' confirm-type='next'></input>
   </view>
 

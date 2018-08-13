@@ -4,7 +4,7 @@ Page({
     department:'',
     realName: '',       // 姓名
     userCode: '',       // 用户编码
-    userHeadImage: '../../libs/imgs/im_policeman.png',  // 用户头像
+    userHeadImage: '',  // 用户头像
     now_time: '',       // 当前日期与星期
     bindBoxAccountVal: '',
     status:'',
@@ -32,8 +32,7 @@ Page({
 
   // 清理缓存
   bindRequestRefresh: function (e) {
-    this.doRequestInit(true)
-    this.doWechatLogin(true);
+      wx.showToast({ title: '操作成功', duration: 1000 });
   },
 
   // 退出登录

@@ -85,6 +85,7 @@ Page({
         if (datas){
           wx.showModal({ title: '提醒', content: '更新成功', showCancel: false });
           app.globals.userInfo.emp = datas;
+          app.globals.userInfo.employeeName = datas.realName;
         }else{
           wx.showModal({ title: '提醒', content: '更新失败', showCancel: false });
         }
@@ -129,6 +130,7 @@ Page({
       });
     } else {
       this.setData({
+        department:'请选择',
         workAge: '请选择'
       });
     }
@@ -146,6 +148,7 @@ Page({
 
     this.setData({
       selectDepartment: this.data.departments[e.detail.value],
+      department: this.data.departments[e.detail.value].text,
       departmentId: this.data.departments[e.detail.value].id
     })
   },
