@@ -15,8 +15,10 @@
   </view>
 
   <!--按钮-->
-  <button class="btn" loading="{{loginLoading}}" bindgetuserinfo="bindLogin" open-type="getUserInfo">授权登录</button>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" loading="{{loginLoading}}" bindgetuserinfo="bindLogin" open-type="getUserInfo">授权登录</button>
+  </view>
+
 </form>
 
 <include src="../../template/footer.wxml" />
-

@@ -39,7 +39,7 @@
     <view class="item">
       <navigator url="../myResume/myResume">
         <image class='icon' src='../../libs/imgs/im_item_complete.png' mode='widthFix' />
-        <text>我的简介</text>
+        <text>我的标签</text>
       </navigator>
     </view>
   </view>

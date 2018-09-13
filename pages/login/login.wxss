@@ -1,4 +1,4 @@
-page{background-color:#25364a}
+page{background-color:#dde7f3}
 
 /*标题*/
 .login_title{display:flex;margin-top:30rpx;margin-bottom:30rpx;flex-direction:row;align-items:center;justify-content:center}
@@ -14,6 +14,6 @@ form .item .right .split{padding:0 10rpx;color:#4a5a71}
 form .item .right .text{color:#3a9aec;}
 
 /*表单备注*/
-form .explain{padding:30rpx 70rpx;color:#b8b8b5;}
+form .explain{padding:30rpx 70rpx;color:#070707;}
 form .explain text{display:block}
 form .btn{margin-right:50rpx;margin-left:50rpx;}

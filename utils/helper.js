@@ -3,10 +3,10 @@
 const hosts = {
   comm: {
 
-    //host: 'http://192.168.1.118:8082',
-    //host_static: 'http://192.168.1.118',
-    host: 'https://www.ghxyh.cn/api',
-    host_static: 'https://www.ghxyh.cn',
+    host: 'http://192.168.1.118:8082',
+    host_static: 'http://192.168.1.118',
+    // host: 'https://www.ghxyh.cn/api',
+    // host_static: 'https://www.ghxyh.cn',
   },
 }
 
@@ -17,10 +17,13 @@ const urls = {
     updateEmp: hosts.comm.host + "/MiniProV1Controller/updatePersonalInfo", //更新个人信息
     orgLoad: hosts.comm.host + "/AdminBaseController/Organization/load", //获取机构详情
     departMentsList: hosts.comm.host + "/AdminBaseController/Department/list",// 查询服务网点
+    wxuserList: hosts.comm.host + "/BusinessBaseController/Wxuser/list",//查询绑定的微信数据
     serviceBranchList: hosts.comm.host + "/AdminBaseController/Servicebranch/list",// 查询服务网点
     jsCodeSession: hosts.comm.host + "/business/public/api/jscode2session", // 获取用户OPENID
     loginByOpenId: hosts.comm.host + "/business/public/api/loginByOpenId", // 根据openid登录
     bindWxuser: hosts.comm.host + "/business/public/api/bindWxUser", // 绑定微信用户
+    tagsList: hosts.comm.host + "/BusinessBaseController/Tags/list", // 查询标签
+    tagsCreate: hosts.comm.host + "/BusinessBaseController/Tags/create", // 标签创建
   }
 }
 

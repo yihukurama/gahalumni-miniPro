@@ -1,12 +1,29 @@
-<!--登录图片-->
-<form>
-  <view class='item'>
-    <textarea type='text' placeholder='请输入校友简介，从事哪方面工作，可以给校友们解答哪方面的问题，140字以内' bindinput="bindinput" data-input-member='note'  value='{{note}}' confirm-type='next' ></textarea>
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">个人标签</view>
+    <view class="page__desc">创建个人标签后校友可通过标签查询到你，最多可创建4个标签</view>
   </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-cells__title">新建标签</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入新标签名" bindinput="bindinput" data-input-member='inputTag' value='{{inputTag}}' />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">已有标签</view>
 
-  <!--按钮-->
-  <button class="btn" loading="{{loginLoading}}" bindtap="formSubmit">提 交</button>
-</form>
+    <view class="weui-flex" >
+      <view class="weui-flex__item" wx:for="{{tags}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+        <view class="placeholder">{{item.text}}</view>
+      </view>
+    </view>
 
+  </view>
+</view>
+
+<view class="weui-btn-area">
+  <button class="weui-btn" type="primary" bindtap="bindFormSubmit">提交</button>
+</view>
 <include src="../../template/footer.wxml" />
-
