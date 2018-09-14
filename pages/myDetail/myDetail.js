@@ -329,11 +329,19 @@ Page({
       complete: function (datas) {
         console.log(datas)
         if (datas) {
-          wx.showModal({ title: '提醒', content: '更新成功', showCancel: false });
+          wx.showToast({
+            title: '更新成功',
+            icon: 'success',
+            duration: 1000
+          });
           app.globals.userInfo.emp = datas;
           app.globals.userInfo.employeeName = datas.realName;
         } else {
-          wx.showModal({ title: '提醒', content: '更新失败', showCancel: false });
+          wx.showToast({
+            title: '更新失败',
+            icon: 'fail',
+            duration: 1000
+          });
         }
 
       }

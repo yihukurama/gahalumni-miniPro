@@ -6,14 +6,22 @@
 <!--登录表单-->
 <form>
   <!--使用说明-->
-  <view class='explain font_small_1'>
+  <!-- <view class='explain font_small_1'>
     <text>说明：</text>
     <text>1、只适用国华纪念中学毕业的各届毕业生。</text>
     <text>2、暂未与学校系统进行对接，以审核机制识别校友真实性。</text>
     <text>3、收集的校友信息未经校友会允许绝不外露。</text>
     <text>4、稳定后会赠送给校友会，后续功能由校友会统筹规划，希望有能力的校友积极参与，当前阶段：内测，请勿转发。</text>
+  </view> -->
+<view class='explain font_small_1'>
+    <text>说明：</text>
+    <text>1、只适用国华纪念中学毕业的各届毕业生</text>
+    <text>2、该小程序目的旨在促进校友之间的联系与交流</text>
+    <text>3、未来根据校友会需求，增加保险，法律，医学，经验分享等相关板以促进校友信息互通</text>
+    <text>4、审核机制识别校友真实性,催审联系国华09邓帅</text>
+    <text>5、待校友总会官方小程序落实会进行数据迁移</text>
+    
   </view>
-
   <!--按钮-->
   <view class="weui-btn-area">
     <button class="weui-btn" type="primary" loading="{{loginLoading}}" bindgetuserinfo="bindLogin" open-type="getUserInfo">授权登录</button>

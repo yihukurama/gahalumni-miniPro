@@ -62,15 +62,28 @@ Page({
     }
   },
 
+  
+  
+  
   // 执行查询
   doRequestSearch: function () {
+
+
     console.log("模糊查询")
     var page = this;
     var app = getApp();
+
+
+
+    var params;
+    if (page.data.realName && page.data.realName!=''){
+       params = { realName: page.data.realName }
+    }
+    
     app.helper.fn.request({
       url: app.helper.urls.comm.listEmpInfos,
       method: 'POST',
-      data: app.helper.fn.getRequestWrap({ realName:page.data.realName }),
+      data: app.helper.fn.getRequestWrap(params),
       loading: '加载中..' ,
       complete: function (datas) {
         if (!datas || datas.length == 0) {

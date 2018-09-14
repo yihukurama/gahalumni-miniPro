@@ -24,6 +24,7 @@ const urls = {
     bindWxuser: hosts.comm.host + "/business/public/api/bindWxUser", // 绑定微信用户
     tagsList: hosts.comm.host + "/BusinessBaseController/Tags/list", // 查询标签
     tagsCreate: hosts.comm.host + "/BusinessBaseController/Tags/create", // 标签创建
+    tagRemove: hosts.comm.host + "/BusinessBaseController/Tags/remove", // 标签创建
   }
 }
 

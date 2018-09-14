@@ -5,13 +5,57 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{},
-    tags:{},
-    hasTags:[],
-    newTag:[],
-    inputTag:''
+    userInfo: {},
+    tags: {},
+    inputTag: '',
+    delTag: false
   },
 
+  bindTag: function (e) {
+
+    var page = this;
+
+    page.setData({
+      delTag: !page.data.delTag
+    })
+
+    var tagData = e.currentTarget.dataset.item;
+    wx.showModal({
+      title: '提示',
+      content: `是否删除标签${tagData.text}`,
+      success: function (res) {
+        if (res.confirm) {
+          app.helper.fn.request({
+            url: app.helper.urls.comm.tagRemove,
+            method: 'POST',
+            data: app.helper.fn.getRequestWrap({id:tagData.id}),
+            loading: false ? '提交中..' : null,
+            complete: function (datas) {
+
+              if (!datas) {
+                wx.showToast({
+                  title: '操作失败',
+                  icon: 'fail',
+                  duration: 1000
+                });
+                return;
+              }
+              wx.showToast({
+                title: '已完成',
+                icon: 'success',
+                duration: 1000
+              });
+              
+              page.doInitData(false);
+              return;
+            }
+          })
+        }
+      }
+    });
+
+
+  },
   // 输入事件
   bindinput: function (e) {
     var page = this;
@@ -23,27 +67,38 @@ Page({
 
   bindFormSubmit: function (e) {
     var page = this;
-    page.data.newTag.push(page.data.inputTag);
-    console.debug(page.data.inputTag);
-    console.debug(page.data.newTag);
-    console.debug(page.data.userInfo);
+    if (page.data.tags != null && page.data.tags.length > 3) {
+      wx.showModal({ title: '提醒', content: '个人标签最多4个', showCancel: false });
+      return;
+    }
 
+    if (page.data.inputTag == null || page.data.inputTag == '') {
+      wx.showModal({ title: '提醒', content: '新增标签不能为空', showCancel: false });
+    }
     var params = {
-      userId:page.data.userInfo.id,
+      userId: page.data.userInfo.id,
       text: page.data.inputTag
     }
     app.helper.fn.request({
       url: app.helper.urls.comm.tagsCreate,
       method: 'POST',
-      data: app.helper.fn.getRequestWrap( params ),
+      data: app.helper.fn.getRequestWrap(params),
       loading: false ? '提交中..' : null,
       complete: function (datas) {
-    
+
         if (!datas) {
-          wx.showModal({ title: '提醒', content: '创建失败', showCancel: false });
+          wx.showToast({
+            title: '创建失败',
+            icon: 'fail',
+            duration: 1000
+          });
           return;
         }
-        wx.showModal({ title: '提醒', content: '创建成功', showCancel: false });
+        wx.showToast({
+          title: '创建成功',
+          icon: 'success',
+          duration: 1000
+        });
         page.doInitData(false);
         return;
       }
@@ -51,7 +106,7 @@ Page({
   },
 
 
-  
+
   doInitData: function (isRefresh) {
     var page = this;
     var userInfo = getApp().globals.userInfo;
@@ -65,12 +120,12 @@ Page({
         if (!datas || datas.length == 0) {
           page.setData({
             userInfo: userInfo,
-            
+
           });
           return;
         }
         page.setData({
-          userInfo:userInfo,
+          userInfo: userInfo,
           tags: datas
         });
         console.log(datas);
@@ -84,7 +139,7 @@ Page({
   onLoad: function (options) {
     var page = this;
     var userInfo = app.globals.userInfo;
-    
+
     if (!userInfo) {
       wx.redirectTo({ url: '/pages/login/login' });
       return;
@@ -93,5 +148,5 @@ Page({
     this.doInitData(true);
   },
 
-  
+
 })
