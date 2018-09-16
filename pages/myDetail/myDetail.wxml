@@ -32,7 +32,7 @@
           <view class="weui-label">手机号</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="授权校友可能通过收集号查询到你" bindinput="bindinput" data-input-member='phoneNo' value='{{phoneNo}}' />
+          <input class="weui-input" placeholder="授权校友可能通过手机号查询到你" bindinput="bindinput" data-input-member='phoneNo' value='{{phoneNo}}' />
         </view>
       </view>
       <view class="weui-cell weui-cell_input weui-cell_vcode">
@@ -40,7 +40,7 @@
           <view class="weui-label">条形码</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="授权校友可能通过条形码查询到你（教师可填写工号）" bindinput="bindinput" data-input-member='code' value='{{code}}' />
+          <input class="weui-input" placeholder="（教师可填写工号）" bindinput="bindinput" data-input-member='code' value='{{code}}' />
         </view>
       </view>
 
@@ -59,7 +59,7 @@
           <view class="weui-label">就读高校</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="授权校友可能通过学校查询到你" bindinput="bindinput" value='{{wxuser.schoolName}}' />
+          <input class="weui-input" placeholder="授权校友可能通过学校查询到你" bindinput="bindinput" value='{{wxuser.schoolName}}' data-input-member='wxuser.schoolName'/>
         </view>
 
       </view>

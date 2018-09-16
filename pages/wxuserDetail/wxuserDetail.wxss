@@ -1,0 +1,16 @@
+.weui-form-preview{
+    margin-bottom: 25px;
+}
+
+.placeholder {
+  margin: 2px;
+  padding: 0 10px;
+  text-align: center;
+  background-color: rgb(149, 236, 222);
+  height: 2.3em;
+  line-height: 2.3em;
+  color: #0e661a;
+  border-radius: 5%;
+  border-width: 1px;
+
+}

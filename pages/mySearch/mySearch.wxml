@@ -4,9 +4,12 @@
 <view class='search'>
   <view class='content'>
     <view class='item right-img'>
-      <view class='label'>校友姓名：</view>
+      <!-- <view class='label'>校友姓名：</view> -->
+      <picker bindchange="bindSearchCodesChange" value="{{searchCodeIndex}}" range="{{searchCodes}}">
+        <view class="weui-select">{{searchCodes[searchCodeIndex]}}</view>
+      </picker>
       <view class='input'>
-        <input class='black' placeholder='请输姓名（支持模糊查询）' placeholder-class='holder' value='{{acciPlate}}' bindinput='bindSearchInput'></input>
+        <input class='black' placeholder='请输入（支持模糊查询）' placeholder-class='holder' value='{{acciPlate}}' bindinput='bindSearchInput'></input>
       </view>
       <view class='right'>
         <image src='../../libs/imgs/im_search_car.png' bindtap='bindSearch'></image>
@@ -16,44 +19,36 @@
 </view>
 
 <!--查询无结果1-->
-<view class='no-result' hidden='{{searchType!=1 || employees.length>0 }}'>
+<view class='no-result' hidden='{{!noReasult}}'>
   <view style='font-weight: bold'>暂无查询结果</view>
-  <view>1、暂支持校友姓名查询；</view>
-  <view>2、将增加界别筛选条件；</view>
-  <view>3、未认证校友不能查询校友信息，请等待认证；</view>
+  <view>1、可选择查询条件；</view>
+  <view>2、为保证校友信息部泄露，未认证校友不可查询，请先补充完整信息后等待审核；</view>
+  <view>3、可联系国华09邓帅进行催审，15914865707；</view>
 </view>
 
-<!--统计数据-->
-<view class='count' hidden='{{employees.length==0}}'>
-  <view class='item' hidden='{{searchType!=3}}'>
-    <text>已认证</text>
-    <text>{{cases_statistics['80_1100']}}人</text>
-  </view>
-  <view class='item' hidden='{{searchType!=3}}'>
-    <text>未认证</text>
-    <text>{{cases_statistics['80_1000']}}人</text>
-  </view>
-</view>
 
 <scroll-view class='result' scroll-y enable-back-to-top lower-threshold="80" bindscrolltolower="bindScrollToLower" style="height: {{scroll_view_height}}px;">
   <block wx:for="{{employees}}" wx:for-item="item" wx:for-index="index" wx:key="id">
 
-    <view class="weui-panel">
+    <view class="weui-panel" bindtap='bindPreview' id='{{item.id}}'>
       <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_text">
 
-          <view  hover-class="weui-cell_active">
+          <view hover-class="weui-cell_active">
             <view class=" weui-cells_after-title">
               <view url="" class="weui-cell">
                 <view class="weui-cell__hd">
                   <image src="{{item.avatarUrl}}" style="margin-right: 5px;vertical-align: middle;width:50px; height: 50px;"></image>
                 </view>
-                <view class="weui-cell__bd">   {{item.realName}}</view>
-                <view class="weui-cell__ft">{{item.workAge}}</view>
+                <view class="weui-cell__bd"></view>
+                <view class="weui-cell__bd">{{item.realName}}</view>
+                <view class="weui-cell__bd">{{item.workAge}}</view>
+                <view wx:if="{{item.auth}}" class="weui-cell__ft_in" style='color: green;font-weight:bold'>已认证</view>
+                <view wx:if="{{!item.auth}}" class="weui-cell__ft_in" style='color: red;font-weight:bold'>未认证</view>
               </view>
 
             </view>
-            
+
           </view>
         </view>
       </view>

@@ -95,16 +95,24 @@ Page({
         app.globals.departMents = departMents;
         var departmentNames = [];
 
-        for (var i = 0; i < departMents.length; i++) {
-          departmentNames.push(departMents[i].text);
-          if (userInfo.emp.departmentId == departMents[i].id){
-              page.setData({
-                departmentNameIndex:i
-              });
-          }
-
+        if (!userInfo.emp) {
+          page.setData({
+            departmentId: departMents[0].id,
+            departmentNameIndex: 0
+          });
         }
 
+        for (var i = 0; i < departMents.length; i++) {
+          departmentNames.push(departMents[i].text);
+          if (userInfo.emp && userInfo.emp.departmentId == departMents[i].id){
+              page.setData({
+                departmentId: departMents[i].id,
+                departmentNameIndex:i
+              });
+          } 
+
+        }
+        console.debug(departmentNames)
         page.setData({
           departments: departMents,
           departmentNames: departmentNames
@@ -171,7 +179,7 @@ Page({
 
     //设置个人信息
     for (var i = 0; i < page.data.departments.length; i++) {
-      if (userInfo.emp && userInfo.emp.departMentId == page.data.departments[i].id) {
+      if (userInfo.emp &&userInfo.emp && userInfo.emp.departMentId == page.data.departments[i].id) {
         page.setData({
           departmentNameIndex: i
         })
@@ -339,7 +347,7 @@ Page({
         } else {
           wx.showToast({
             title: '更新失败',
-            icon: 'fail',
+            icon: 'none',
             duration: 1000
           });
         }

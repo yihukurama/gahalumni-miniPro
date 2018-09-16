@@ -35,7 +35,7 @@ Page({
               if (!datas) {
                 wx.showToast({
                   title: '操作失败',
-                  icon: 'fail',
+                  icon: 'none',
                   duration: 1000
                 });
                 return;
@@ -67,14 +67,16 @@ Page({
 
   bindFormSubmit: function (e) {
     var page = this;
-    if (page.data.tags != null && page.data.tags.length > 3) {
-      wx.showModal({ title: '提醒', content: '个人标签最多4个', showCancel: false });
+    if (page.data.tags != null && page.data.tags.length > 2) {
+      wx.showModal({ title: '提醒', content: '个人标签最多3个', showCancel: false });
       return;
     }
 
     if (page.data.inputTag == null || page.data.inputTag == '') {
       wx.showModal({ title: '提醒', content: '新增标签不能为空', showCancel: false });
+      return;
     }
+
     var params = {
       userId: page.data.userInfo.id,
       text: page.data.inputTag
@@ -89,7 +91,7 @@ Page({
         if (!datas) {
           wx.showToast({
             title: '创建失败',
-            icon: 'fail',
+            icon: 'none',
             duration: 1000
           });
           return;
@@ -120,7 +122,7 @@ Page({
         if (!datas || datas.length == 0) {
           page.setData({
             userInfo: userInfo,
-
+            tags: datas
           });
           return;
         }

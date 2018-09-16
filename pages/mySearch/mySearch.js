@@ -1,54 +1,78 @@
 Page({
   data: {
-    realName: '',      // 姓名
-    searchType: 0,      // 查询类型
-    employees: [],          // 结果列表
-    pagination: { limit: 20, page: 1, total: 0 },   // 分页参数
-    scroll_view_height: 0,    // 滚动组件高度
+    searchCodes: ["姓名", "地址", "届别", "公司", "高校", "职业", "简介"],
+    searchCodeIndex: 0,
+    searchText: '', //查询内容
+    employees: [], // 结果列表
+    noReasult:false,
+    pagination: {
+      limit: 20,
+      page: 1,
+      total: 0
+    }, // 分页参数
+    scroll_view_height: 0, // 滚动组件高度
   },
 
   // 生命周期函数--监听页面加载
-  onLoad: function (options) {
+  onLoad: function(options) {
     var page = this;
     var searchType = options.type ? parseInt(options.type) : 1;
 
     // 处理标题
     var title = '';
     if (searchType == 1) title = "查询校友";
-    wx.setNavigationBarTitle({ title: title });
+    wx.setNavigationBarTitle({
+      title: title
+    });
 
-   
+
     // 计算页面高度
     var windowHeight = getApp().globals.systemInfo.windowHeight;
     var scroll_view_height = windowHeight - 108;
     // 赋值
-    page.setData({ searchType: searchType,scroll_view_height: scroll_view_height });
+    page.setData({
+      searchType: searchType,
+      scroll_view_height: scroll_view_height
+    });
   },
 
   // 生命周期函数--监听页面显示
-  onShow: function () {
+  onShow: function() {
     var page = this;
-    page.doRequestSearchStatistics();
+   
     page.doRequestSearch();
   },
 
+  //绑定
+  bindSearchCodesChange: function(e) {
+    console.log('picker country code 发生选择改变，携带值为', e.detail.value);
+
+    this.setData({
+      searchCodeIndex: e.detail.value
+    })
+  },
   // 绑定-查询关键字录入
-  bindSearchInput: function (e) {
-    this.setData({ realName: e.detail.value })
+  bindSearchInput: function(e) {
+    this.setData({
+      searchText: e.detail.value
+    })
   },
 
   // 绑定-查询按钮
-  bindSearch: function (e) {
+  bindSearch: function(e) {
     var page = this;
-    var cases_statistics = { '149': 0, '160': 0, '40': 0, '35': 0, '400': 0, '80_1000': 0, '80_1100': 0 };
-    page.setData({ cases: [], cases_distances: [], cases_locations: [], cases_statistics: cases_statistics });
-    page.data.pagination = { limit: 20, page: 1, total: 0 };
-    page.doRequestSearchStatistics();
+
+    page.data.pagination = {
+      limit: 20,
+      page: 1,
+      total: 0
+    };
+   
     page.doRequestSearch();
   },
 
   // 滚动到底部的事件
-  bindScrollToLower: function (e) {
+  bindScrollToLower: function(e) {
     var page = this;
     if (page.data.searchType == 1) {
       return;
@@ -58,15 +82,18 @@ Page({
       page.data.pagination.page++;
       page.doRequestSearch();
     } else {
-      wx.showToast({ title: '已全部加载完成', duration: 1000 })
+      wx.showToast({
+        title: '已全部加载完成',
+        duration: 1000
+      })
     }
   },
 
-  
-  
-  
+
+
+
   // 执行查询
-  doRequestSearch: function () {
+  doRequestSearch: function() {
 
 
     console.log("模糊查询")
@@ -76,53 +103,113 @@ Page({
 
 
     var params;
-    if (page.data.realName && page.data.realName!=''){
-       params = { realName: page.data.realName }
+    console.debug(page.data.searchCodeIndex);
+    if (page.data.searchText && page.data.searchText != '') {
+      console.debug(page.data.searchCodeIndex);
+      switch (parseInt(page.data.searchCodeIndex)) {
+        case 0:
+          params = {
+            realName: page.data.searchText
+          }
+          break;
+          params = {
+            realName: page.data.searchText
+          }
+        case 1:
+          params = {
+            nowAddr: page.data.searchText
+          }
+          break;
+        case 2:
+          params = {
+            workAge: page.data.searchText
+          }
+          break;
+        case 3:
+          params = {
+            companyName: page.data.searchText
+          }
+          break;
+        case 4:
+          params = {
+            schoolName: page.data.searchText
+          }
+          break;
+        case 5:
+          params = {
+            occupation: page.data.searchText
+          }
+          break;
+        case 6:
+          params = {
+            note: page.data.searchText
+          }
+          break;
+        default:
+
+      }
+
+
+
+
+    } else {
+
     }
-    
+
     app.helper.fn.request({
       url: app.helper.urls.comm.listEmpInfos,
       method: 'POST',
       data: app.helper.fn.getRequestWrap(params),
-      loading: '加载中..' ,
-      complete: function (datas) {
-        if (!datas || datas.length == 0) {
+      isOnlyData:false,
+      loading: '加载中..',
+      complete: function(datas) {
+        if (!datas || !datas.success ) {
           
+          page.setData({
+            noReasult: true,
+            
+            employees: []
+          });
+          return;
+        }
+        if ( datas.data.length == 0) {
+          wx.showToast({
+            title: '未查询到数据',
+            icon: 'none',
+            duration: 1000
+          });
+          page.setData({
+            noReasult: true,
+
+            employees: datas.data
+          });
           return;
         }
         page.setData({
-          employees:datas
+          noReasult: false,
+          
+          employees: datas.data
         });
       }
     })
   },
 
-  // 执行查询查询统计数据,页面刷新才调用
-  doRequestSearchStatistics: function () {
-    var page = this;
-    var acciPlate = page.data.acciPlate;
-    var searchType = page.data.searchType;
-    var userInfo = getApp().globals.userInfo;
 
-    const format = n => { n = n.toString(); return n[1] ? n : '0' + n };
-    var createDateGT = new Date().getFullYear() + '-'
-      + format(new Date().getMonth() + 1) + '-'
-      + format(new Date().getDate()) + ' 00:00:00';
-    var createDateLT = new Date().getFullYear() + '-'
-      + format(new Date().getMonth() + 1) + '-'
-      + format(new Date().getDate()) + ' 23:59:59';
 
-    
-    
-  },
 
-  
 
-  
   // 呼叫报案人
-  bindCall: function (e) {
-    wx.makePhoneCall({ phoneNumber: e.target.dataset.phoneNumber })
+  bindCall: function(e) {
+    wx.makePhoneCall({
+      phoneNumber: e.target.dataset.phoneNumber
+    })
   },
 
- 
+  bindPreview: function(e){
+    console.debug(e);
+    wx.navigateTo({
+      url: '../wxuserDetail/wxuserDetail?id=' + e.currentTarget.id,
+    })
+  }
+
 })

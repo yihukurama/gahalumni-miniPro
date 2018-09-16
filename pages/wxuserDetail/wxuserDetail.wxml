@@ -1,0 +1,104 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__hd">
+    <view class="page__title">{{previewData.employeeEntity.realName}}</view>
+
+
+    <view class="weui-flex">
+      <view class="weui-flex__item" wx:for="{{previewData.tagsEntityList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+        <view id="item.id" data-item="{{item}}" class="placeholder" bindlongtap="bindTag">{{item.text}}</view>
+
+      </view>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{tips}}</view>
+    <view class="weui-cells__title">所属组织</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__bd">
+
+          <view class="weui-select">{{previewData.employeeEntity.departmentName}}</view>
+
+        </view>
+      </view>
+    </view>
+
+
+    <view class="weui-cells__title">基本资料</view>
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">手机号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled='true' class="weui-input" bindinput="bindinput" data-input-member='phoneNo' value='{{previewData.employeeEntity.mobile}}' />
+        </view>
+      </view>
+
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">毕业年份</view>
+        </view>
+        <view class="weui-cell__bd">
+
+          <view class="weui-input">{{previewData.employeeEntity.workAge}}</view>
+
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">就读高校</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled='true' class="weui-input" bindinput="bindinput" value='{{previewData.wxuserEntity.schoolName}}' />
+        </view>
+
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">社会职业</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled='true' class="weui-input" bindinput="bindinput" value='{{previewData.wxuserEntity.occupation}}' data-input-member='wxuser.occupation' />
+        </view>
+
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">就职公司</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled='true' class="weui-input" bindinput="bindinput" data-input-member='previewData.wxuserEntity.companyName' value='{{previewData.wxuserEntity.companyName}}' />
+        </view>
+
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">当前地址</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled='true' class="weui-input" bindinput="bindinput" data-input-member='wxuser.nowAddr' value='{{previewData.wxuserEntity.nowAddr}}' data-input-member='wxuser.nowAddr' />
+        </view>
+
+      </view>
+    </view>
+
+
+    <view class="weui-cells__title">个人简介</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" bindinput="bindinput" style="height: 8.3em" data-input-member='note' value='{{previewData.employeeEntity.note}}' />
+        </view>
+      </view>
+    </view>
+
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="bindFormSubmit">联系校友</button>
+    </view>
+  </view>
+</view>

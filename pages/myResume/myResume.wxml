@@ -1,7 +1,7 @@
 <view class="page">
   <view class="page__hd">
     <view class="page__title">个人标签</view>
-    <view class="page__desc">创建个人标签后校友可通过标签查询到你,最多可创建4个标签,长按可删除标签</view>
+    <view class="page__desc">创建个人标签后校友可通过标签查询到你,最多可创建3个标签,长按可删除标签</view>
   </view>
   <view class="page__bd page__bd_spacing">
     <view class="weui-cells__title">新建标签</view>

@@ -6,16 +6,17 @@
     "pages/myHome/myHome",
     "pages/myDetail/myDetail",
     "pages/myResume/myResume",
-    "pages/index/buildHistory/buildHistory"
+    "pages/index/buildHistory/buildHistory",
+    "pages/wxuserDetail/wxuserDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1B81E5",
-    "navigationBarTitleText": "国华校友信息管理小程序版",
+    "navigationBarTitleText": "国华校友信息系统小程序版",
     "navigationBarTextStyle": "light"
   },
   "networkTimeout": {
-    "request": 3000,
+    "request": 6000,
     "connectSocket": 30000,
     "uploadFile": 30000,
     "downloadFile": 30000

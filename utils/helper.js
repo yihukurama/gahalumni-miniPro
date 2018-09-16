@@ -3,8 +3,8 @@
 const hosts = {
   comm: {
 
-    host: 'http://192.168.1.118:8082',
-    host_static: 'http://192.168.1.118',
+    host: 'http://localhost:8082',
+    host_static: 'http://localhost8',
     // host: 'https://www.ghxyh.cn/api',
     // host_static: 'https://www.ghxyh.cn',
   },
@@ -25,6 +25,7 @@ const urls = {
     tagsList: hosts.comm.host + "/BusinessBaseController/Tags/list", // 查询标签
     tagsCreate: hosts.comm.host + "/BusinessBaseController/Tags/create", // 标签创建
     tagRemove: hosts.comm.host + "/BusinessBaseController/Tags/remove", // 标签创建
+    loadPreview: hosts.comm.host + "/MiniProV1Controller/loadPreview", // 查看校友详情
   }
 }
 
