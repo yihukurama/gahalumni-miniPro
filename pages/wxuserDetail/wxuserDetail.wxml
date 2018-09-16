@@ -59,7 +59,7 @@
       </view>
       <view class="weui-cell weui-cell_input weui-cell_vcode">
         <view class="weui-cell__hd">
-          <view class="weui-label">社会职业</view>
+          <view class="weui-label">职业(专业)</view>
         </view>
         <view class="weui-cell__bd">
           <input disabled='true' class="weui-input" bindinput="bindinput" value='{{previewData.wxuserEntity.occupation}}' data-input-member='wxuser.occupation' />
@@ -68,7 +68,7 @@
       </view>
       <view class="weui-cell weui-cell_input weui-cell_vcode">
         <view class="weui-cell__hd">
-          <view class="weui-label">就职公司</view>
+          <view class="weui-label">公司(学院)</view>
         </view>
         <view class="weui-cell__bd">
           <input disabled='true' class="weui-input" bindinput="bindinput" data-input-member='previewData.wxuserEntity.companyName' value='{{previewData.wxuserEntity.companyName}}' />
