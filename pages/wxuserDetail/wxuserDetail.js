@@ -10,7 +10,16 @@ Page({
     navigateId:'',
     userInfo:{}
   },
-
+  doCreateFormId: function (e) {
+    app.helper.fn.request({
+      url: app.helper.urls.comm.createFormId,
+      method: 'POST',
+      data: app.helper.fn.getRequestWrap({ openId: app.globals.wxSession.openid, formId: e.detail.formId, status: 1 }),
+      loading: '数据处理中..',
+      complete: function (datas) {
+      }
+    })
+  },
   doDataInit:function(){
     var page = this;
     app.helper.fn.request({
@@ -57,8 +66,9 @@ Page({
 
   },
 
-  bindFormSubmit:function(){
+  bindFormSubmit:function(e){
     var page = this;
+    page.doCreateFormId(e);
     if (!page.data.previewData || !page.data.previewData.employeeEntity.mobile){
       wx.showToast({
         title: '该校有没有号码信息',

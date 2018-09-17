@@ -10,7 +10,16 @@ Page({
     inputTag: '',
     delTag: false
   },
-
+  doCreateFormId: function (e) {
+    app.helper.fn.request({
+      url: app.helper.urls.comm.createFormId,
+      method: 'POST',
+      data: app.helper.fn.getRequestWrap({ openId: app.globals.wxSession.openid, formId: e.detail.formId, status: 1 }),
+      loading: '数据处理中..',
+      complete: function (datas) {
+      }
+    })
+  },
   bindTag: function (e) {
 
     var page = this;
@@ -67,6 +76,7 @@ Page({
 
   bindFormSubmit: function (e) {
     var page = this;
+    page.doCreateFormId(e);
     if (page.data.tags != null && page.data.tags.length > 2) {
       wx.showModal({ title: '提醒', content: '个人标签最多3个', showCancel: false });
       return;

@@ -24,7 +24,10 @@
   </view>
 </view>
 
-<view class="weui-btn-area">
-  <button class="weui-btn" type="primary" bindtap="bindFormSubmit">提交</button>
-</view>
+<form bindsubmit="bindFormSubmit" report-submit='true'>
+
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary"  formType="submit">提交</button>
+      </view>
+    </form>
 <include src="../../template/footer.wxml" />

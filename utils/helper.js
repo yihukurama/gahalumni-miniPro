@@ -26,6 +26,7 @@ const urls = {
     tagsCreate: hosts.comm.host + "/BusinessBaseController/Tags/create", // 标签创建
     tagRemove: hosts.comm.host + "/BusinessBaseController/Tags/remove", // 标签创建
     loadPreview: hosts.comm.host + "/MiniProV1Controller/loadPreview", // 查看校友详情
+    createFormId: hosts.comm.host + "/BusinessBaseController/Formids/create", // 创建formId
   }
 }
 

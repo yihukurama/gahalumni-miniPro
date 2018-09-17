@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.8",
+	"libVersion": "2.3.0",
 	"appid": "wx930d2c1d2bd7d99d",
 	"projectname": "ghalumni-miniPro",
 	"condition": {

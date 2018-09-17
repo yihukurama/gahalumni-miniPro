@@ -13,12 +13,22 @@
 
   <view class="page__bd">
     <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{tips}}</view>
-    <view class="weui-cells__title">所属组织</view>
+    <view class="weui-cells__title">组织信息</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__bd">
 
           <view class="weui-select">{{previewData.employeeEntity.departmentName}}</view>
+
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">毕业年份</view>
+        </view>
+        <view class="weui-cell__bd">
+
+          <view class="weui-input">{{previewData.employeeEntity.workAge}}</view>
 
         </view>
       </view>
@@ -38,16 +48,7 @@
       </view>
 
 
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">毕业年份</view>
-        </view>
-        <view class="weui-cell__bd">
 
-          <view class="weui-input">{{previewData.employeeEntity.workAge}}</view>
-
-        </view>
-      </view>
       <view class="weui-cell weui-cell_input weui-cell_vcode">
         <view class="weui-cell__hd">
           <view class="weui-label">就读高校</view>
@@ -96,9 +97,11 @@
       </view>
     </view>
 
+    <form bindsubmit="bindFormSubmit" report-submit='true'>
 
-    <view class="weui-btn-area">
-      <button class="weui-btn" type="primary" bindtap="bindFormSubmit">联系校友</button>
-    </view>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary"  formType="submit">联系校友</button>
+      </view>
+    </form>
   </view>
 </view>

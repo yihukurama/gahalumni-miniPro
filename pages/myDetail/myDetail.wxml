@@ -1,8 +1,8 @@
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
-<view class="page__hd">
-        <view class="page__title">基础信息</view>
-        <view class="page__desc">完善的基础信息可以让校友更加了解你</view>
-    </view>
+  <view class="page__hd">
+    <view class="page__title">基础信息</view>
+    <view class="page__desc">完善的基础信息可以让校友更加了解你</view>
+  </view>
   <view class="page__bd">
     <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{tips}}</view>
     <view class="weui-cells__title">所属组织</view>
@@ -11,6 +11,25 @@
         <view class="weui-cell__bd">
           <picker bindchange="bindDepartmentNameChange" value="{{departmentNameIndex}}" range="{{departmentNames}}">
             <view class="weui-select">{{departmentNames[departmentNameIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+
+
+
+
+
+
+
+
+
+      <view class="weui-cell weui-cell_input ">
+        <view class="weui-cell__hd">
+          <view class="weui-label ">毕业年份</view>
+        </view>
+        <view class="weui-cell__bd ">
+          <picker fields="year" mode="date" value="{{workAge}}" start="2000" bindchange="bindDateChange">
+            <view class="weui-input">{{workAge}}</view>
           </picker>
         </view>
       </view>
@@ -40,26 +59,17 @@
           <view class="weui-label">条形码</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="（教师可填写工号）" bindinput="bindinput" data-input-member='code' value='{{code}}' />
+          <input class="weui-input" placeholder="（教师可填写工号）该信息不公开" bindinput="bindinput" data-input-member='code' value='{{code}}' />
         </view>
       </view>
 
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">毕业年份</view>
-        </view>
-        <view class="weui-cell__bd">
-          <picker fields="year" mode="date" value="{{workAge}}" start="2000" bindchange="bindDateChange">
-            <view class="weui-input">{{workAge}}</view>
-          </picker>
-        </view>
-      </view>
+
       <view class="weui-cell weui-cell_input weui-cell_vcode">
         <view class="weui-cell__hd">
           <view class="weui-label">就读高校</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="授权校友可能通过学校查询" bindinput="bindinput" value='{{wxuser.schoolName}}' data-input-member='wxuser.schoolName'/>
+          <input class="weui-input" placeholder="授权校友可能通过学校查询" bindinput="bindinput" value='{{wxuser.schoolName}}' data-input-member='wxuser.schoolName' />
         </view>
 
       </view>
@@ -68,7 +78,7 @@
           <view class="weui-label">职业(专业)</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="授权校友可能通过职业（专业）查询" bindinput="bindinput" value='{{wxuser.occupation}}' data-input-member='wxuser.occupation'/>
+          <input class="weui-input" placeholder="授权校友可能通过职业（专业）查询" bindinput="bindinput" value='{{wxuser.occupation}}' data-input-member='wxuser.occupation' />
         </view>
 
       </view>
@@ -86,12 +96,12 @@
           <view class="weui-label">当前地址</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="授权校友可能通过地址查询" bindinput="bindinput" data-input-member='wxuser.nowAddr' value='{{wxuser.nowAddr}}' data-input-member='wxuser.nowAddr'/>
+          <input class="weui-input" placeholder="授权校友可能通过地址查询" bindinput="bindinput" data-input-member='wxuser.nowAddr' value='{{wxuser.nowAddr}}' data-input-member='wxuser.nowAddr' />
         </view>
 
       </view>
     </view>
-    <view class="weui-cells__title">保密等级</view>
+    <!-- <view class="weui-cells__title">保密等级</view>
     <view class="weui-cells weui-cells_after-title">
       <radio-group bindchange="radioChange">
         <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
@@ -103,7 +113,7 @@
           </view>
         </label>
       </radio-group>
-    </view>
+    </view> -->
 
     <view class="weui-cells__title">个人简介</view>
     <view class="weui-cells weui-cells_after-title">
@@ -128,9 +138,11 @@
         </view>
       </label>
     </checkbox-group> -->
+    <form bindsubmit="bindFormSubmit" report-submit='true'>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" formType="submit">确定</button>
+      </view>
+    </form>
 
-    <view class="weui-btn-area">
-      <button class="weui-btn" type="primary" bindtap="bindFormSubmit">确定</button>
-    </view>
   </view>
 </view>

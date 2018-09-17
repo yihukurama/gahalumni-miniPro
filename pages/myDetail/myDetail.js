@@ -10,8 +10,7 @@ Page({
 
     radioItems: [
       { name: '私密（仅自己可见）', value: '1' },
-      { name: '认证校友可见', value: '2', checked: true },
-      { name: '公开（所有人可见）', value: '3' }
+      { name: '认证校友可见', value: '2', checked: true }
     ],
 
     isAgree: true,
@@ -141,7 +140,6 @@ Page({
               radioItems: [
                 { name: '私密（仅自己可见）', value: '1', checked: true },
                 { name: '认证校友可见', value: '2', checked: false },
-                { name: '公开（所有人可见）', value: '3', checked: false }
               ],
             })
             break;
@@ -150,7 +148,6 @@ Page({
               radioItems: [
                 { name: '私密（仅自己可见）', value: '1', checked: false },
                 { name: '认证校友可见', value: '2', checked: true },
-                { name: '公开（所有人可见）', value: '3', checked: false }
               ],
             })
             break;
@@ -159,7 +156,6 @@ Page({
               radioItems: [
                 { name: '私密（仅自己可见）', value: '1', checked: false },
                 { name: '认证校友可见', value: '2', checked: false },
-                { name: '公开（所有人可见）', value: '3', checked: true }
               ],
             })
             break;
@@ -168,7 +164,6 @@ Page({
               radioItems: [
                 { name: '私密（仅自己可见）', value: '1', checked: false },
                 { name: '认证校友可见', value: '2', checked: true },
-                { name: '公开（所有人可见）', value: '3', checked: false }
               ],
             })
 
@@ -280,9 +275,21 @@ Page({
     return true;
   },
 
+  doCreateFormId:function(e){
+    app.helper.fn.request({
+      url: app.helper.urls.comm.createFormId,
+      method: 'POST',
+      data: app.helper.fn.getRequestWrap({ openId: app.globals.wxSession.openid,formId:e.detail.formId,status:1}),
+      loading: '数据处理中..',
+      complete: function (datas) {
+      }
+    })
+  },
+
   bindFormSubmit: function (e) {
-   
     var page = this;
+    page.doCreateFormId(e);
+
     var userInfo = page.data.userInfo;
     if(!page.doCheckUpdateDatas()){
 

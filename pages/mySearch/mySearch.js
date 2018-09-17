@@ -1,6 +1,6 @@
 Page({
   data: {
-    searchCodes: ["姓名", "地址", "届别", "公司", "高校", "职业", "简介"],
+    searchCodes: ["姓名", "地址", "届别", "公司", "高校", "职业", "简介", "标签"],
     searchCodeIndex: 0,
     searchText: '', //查询内容
     employees: [], // 结果列表
@@ -142,7 +142,12 @@ Page({
           break;
         case 6:
           params = {
-            note: page.data.searchText
+            profile: page.data.searchText
+          }
+          break;
+        case 7:
+          params = {
+            tagText: page.data.searchText
           }
           break;
         default:
