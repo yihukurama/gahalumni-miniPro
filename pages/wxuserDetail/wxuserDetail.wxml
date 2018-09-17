@@ -92,7 +92,7 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <textarea class="weui-textarea" bindinput="bindinput" style="height: 8.3em" data-input-member='note' value='{{previewData.employeeEntity.note}}' />
+          <textarea disabled="true" class="weui-textarea" bindinput="bindinput" style="height: 8.3em" data-input-member='note' value='{{previewData.employeeEntity.note}}' />
         </view>
       </view>
     </view>

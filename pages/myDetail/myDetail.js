@@ -344,19 +344,21 @@ Page({
       complete: function (datas) {
         console.log(datas)
         if (datas) {
-          wx.showToast({
-            title: '更新成功',
-            icon: 'success',
-            duration: 1000
-          });
+          wx.showModal({
+            title: '提示',
+            content: '操作成功',
+            showCancel: false,
+            
+          })
           app.globals.userInfo.emp = datas;
           app.globals.userInfo.employeeName = datas.realName;
         } else {
-          wx.showToast({
-            title: '更新失败',
-            icon: 'none',
-            duration: 1000
-          });
+          wx.showModal({
+            title: '提示',
+            content: '操作失败',
+            showCancel: false,
+
+          })
         }
 
       }

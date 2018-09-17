@@ -76,6 +76,18 @@ Page({
         department:'--',
         status:0
       });
+      wx.showModal({
+        title: '提示',
+        content: '未能获取您的个人信息，请先补充完整',
+        showCancel:false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../myDetail/myDetail',
+            })
+          }
+        }
+      })
     }
 
     
