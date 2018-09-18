@@ -28,7 +28,7 @@
           <view class="weui-label ">毕业年份</view>
         </view>
         <view class="weui-cell__bd ">
-          <picker fields="year" mode="date" value="{{workAge}}" start="2000" bindchange="bindDateChange">
+          <picker fields="year" mode="date" value="{{workAge}}" start="2000" end="2050" bindchange="bindDateChange">
             <view class="weui-input">{{workAge}}</view>
           </picker>
         </view>
