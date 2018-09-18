@@ -190,6 +190,11 @@ Page({
           });
           return;
         }
+
+        for(var i=0;i<datas.data.length;i++){
+          datas.data[i].nickName = decodeURI(datas.data[i].nickName);
+        }
+
         page.setData({
           noReasult: false,
           
