@@ -246,7 +246,10 @@ Page({
       page.doShowTopTips('请选择组织');
       return false;
     }
-    
+    if (!(/^1[34578]\d{9}$/.test(page.data.phoneNo))) {
+      page.doShowTopTips('请输入正确的手机号');
+      return false;
+    }
     if (!page.data.realName) {
       page.doShowTopTips('请填写真实姓名');
       return false;
@@ -288,6 +291,7 @@ Page({
 
   bindFormSubmit: function (e) {
     var page = this;
+
     page.doCreateFormId(e);
 
     var userInfo = page.data.userInfo;
@@ -344,19 +348,11 @@ Page({
       complete: function (datas) {
         console.log(datas)
         if (datas) {
-          wx.showToast({
-            title: '更新成功',
-            icon: 'success',
-            duration: 1000
-          });
+          wx.showModal({ title: '提醒', content: '操作成功', showCancel: false });
           app.globals.userInfo.emp = datas;
           app.globals.userInfo.employeeName = datas.realName;
         } else {
-          wx.showToast({
-            title: '更新失败',
-            icon: 'none',
-            duration: 1000
-          });
+          wx.showModal({ title: '提醒', content: '操作失败', showCancel: false });
         }
 
       }

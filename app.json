@@ -7,7 +7,8 @@
     "pages/myDetail/myDetail",
     "pages/myResume/myResume",
     "pages/index/buildHistory/buildHistory",
-    "pages/wxuserDetail/wxuserDetail"
+    "pages/wxuserDetail/wxuserDetail",
+    "pages/index/feedBack/feedBack"
   ],
   "window": {
     "backgroundTextStyle": "light",

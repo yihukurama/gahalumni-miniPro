@@ -1,0 +1,25 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__hd">
+    <view class="page__title">反馈留言</view>
+    <view class="page__desc">提供宝贵意见，让校友会越来越好！</view>
+  </view>
+  <view class="page__bd">
+    
+    <view class="weui-cells__title">意见建议</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea"  placeholder="请留下您的宝贵意见" bindinput="bindinput" style="height: 8.3em" data-input-member='msg' value='{{msg}}' />
+        </view>
+      </view>
+    </view>
+
+
+    <form bindsubmit="bindFormSubmit" report-submit='true'>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" formType="submit">提交</button>
+      </view>
+    </form>
+
+  </view>
+</view>

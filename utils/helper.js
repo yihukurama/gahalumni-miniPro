@@ -3,10 +3,10 @@
 const hosts = {
   comm: {
 
-    // host: 'http://localhost:8082',
-    // host_static: 'http://localhost',
-    host: 'https://www.ghxyh.cn/api',
-    host_static: 'https://www.ghxyh.cn',
+    host: 'http://localhost:8082',
+    host_static: 'http://localhost',
+    // host: 'https://www.ghxyh.cn/api',
+    // host_static: 'https://www.ghxyh.cn',
   },
 }
 
@@ -27,6 +27,7 @@ const urls = {
     tagRemove: hosts.comm.host + "/BusinessBaseController/Tags/remove", // 标签创建
     loadPreview: hosts.comm.host + "/MiniProV1Controller/loadPreview", // 查看校友详情
     createFormId: hosts.comm.host + "/BusinessBaseController/Formids/create", // 创建formId
+    createFeedBack: hosts.comm.host + "/BusinessBaseController/Feedback/create", // 创建留言
   }
 }
 

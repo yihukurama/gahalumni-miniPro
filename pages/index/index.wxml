@@ -58,7 +58,17 @@
     </view>
   </view>
   <view class='hr'></view>
+
   <view class='item'>
+    <navigator class='navigator' url="./feedBack/feedBack">
+      <image class='icon' src='../../libs/imgs/msg.png'></image>
+      <view class='text'>反馈留言</view>
+      <view class='right'>
+        <image src='../../libs/imgs/im_right.png'></image>
+      </view>
+    </navigator>
+  </view>
+    <view class='item'>
     <navigator class='navigator' url="./buildHistory/buildHistory">
       <image class='icon' src='../../libs/imgs/im_help.png'></image>
       <view class='text'>建设历史</view>
