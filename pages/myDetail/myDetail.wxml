@@ -28,7 +28,7 @@
           <view class="weui-label ">毕业年份</view>
         </view>
         <view class="weui-cell__bd ">
-          <picker fields="year" mode="date" value="{{workAge}}" start="2000" bindchange="bindDateChange">
+          <picker fields="year" mode="date" value="{{workAge}}" start="2000" end="2050" bindchange="bindDateChange">
             <view class="weui-input">{{workAge}}</view>
           </picker>
         </view>
@@ -51,7 +51,9 @@
           <view class="weui-label">手机号</view>
         </view>
         <view class="weui-cell__bd">
+
           <input class="weui-input" placeholder="请输入手机" bindinput="bindinput" type="number" data-input-member='phoneNo' value='{{phoneNo}}' />
+
         </view>
       </view>
       <view class="weui-cell weui-cell_input weui-cell_vcode">
@@ -59,7 +61,7 @@
           <view class="weui-label">条形码</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="（教师可填写工号）该信息不公开" bindinput="bindinput" data-input-member='code' value='{{code}}' />
+          <input class="weui-input" type="number" placeholder="（教师可填写工号）该信息不公开" bindinput="bindinput" data-input-member='code' value='{{code}}' />
         </view>
       </view>
 

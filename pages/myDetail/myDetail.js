@@ -246,7 +246,10 @@ Page({
       page.doShowTopTips('请选择组织');
       return false;
     }
-    
+    if (!(/^1[34578]\d{9}$/.test(page.data.phoneNo))) {
+      page.doShowTopTips('请输入正确的手机号');
+      return false;
+    }
     if (!page.data.realName) {
       page.doShowTopTips('请填写真实姓名');
       return false;
@@ -288,6 +291,7 @@ Page({
 
   bindFormSubmit: function (e) {
     var page = this;
+
     page.doCreateFormId(e);
 
     var userInfo = page.data.userInfo;
@@ -359,6 +363,7 @@ Page({
             showCancel: false,
 
           })
+
         }
 
       }
