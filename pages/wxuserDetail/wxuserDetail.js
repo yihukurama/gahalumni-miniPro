@@ -51,7 +51,8 @@ Page({
     var page = this;
     console.debug(options);
     page.setData({
-      navigateId:options.id
+      navigateId:options.id,
+      userInfo:app.globals.userInfo
     })
     if(options.id == null || options.id == ''){
       wx.showToast({
@@ -80,6 +81,35 @@ Page({
       phoneNumber: page.data.previewData.employeeEntity.mobile
     })
 
+  },
+
+  bindCheck:function(){
+    var page = this;
+    app.helper.fn.request({
+      url: app.helper.urls.comm.updateWxuser,
+      method: 'POST',
+      data: app.helper.fn.getRequestWrap({ id: page.data.navigateId,
+      auth:true }),
+      loading: '加载中..',
+      complete: function (datas) {
+        if (!datas || datas.length == 0) {
+          wx.showToast({
+            title: '认证失败',
+            icon: 'none',
+            duration: 1000
+          });
+
+          return;
+        }
+        wx.showModal({
+          title: '提示',
+          content: '认证成功',
+          showCancel: false,
+
+        })
+        page.doDataInit();
+      }
+    })
   },
 
   /**
