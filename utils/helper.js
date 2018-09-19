@@ -3,10 +3,10 @@
 const hosts = {
   comm: {
 
-    // host: 'http://localhost:8082',
-    // host_static: 'http://localhost',
-    host: 'https://www.ghxyh.cn/api',
-    host_static: 'https://www.ghxyh.cn',
+    host: 'http://localhost:8082',
+    host_static: 'http://localhost',
+    // host: 'https://www.ghxyh.cn/api',
+    // host_static: 'https://www.ghxyh.cn',
   },
 }
 

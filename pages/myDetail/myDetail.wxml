@@ -142,7 +142,7 @@
     </checkbox-group> -->
     <form bindsubmit="bindFormSubmit" report-submit='true'>
       <view class="weui-btn-area">
-        <button class="weui-btn" type="primary" formType="submit">确定</button>
+        <button disabled="{{summitDisable}}" class="weui-btn" type="primary" formType="submit">确定</button>
       </view>
     </form>
 

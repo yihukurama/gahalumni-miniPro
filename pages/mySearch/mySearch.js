@@ -17,7 +17,7 @@ Page({
   onLoad: function(options) {
     var page = this;
     var searchType = options.type ? parseInt(options.type) : 1;
-
+    
     // 处理标题
     var title = '';
     if (searchType == 1) title = "查询校友";
@@ -39,7 +39,7 @@ Page({
   // 生命周期函数--监听页面显示
   onShow: function() {
     var page = this;
-   
+    
     page.doRequestSearch();
   },
 
@@ -74,26 +74,27 @@ Page({
   // 滚动到底部的事件
   bindScrollToLower: function(e) {
     var page = this;
-    if (page.data.searchType == 1) {
-      return;
-    }
+    
     var pagination = page.data.pagination;
+    console.log(pagination)
     if (pagination.limit * pagination.page < pagination.total) {
       page.data.pagination.page++;
-      page.doRequestSearch();
+      page.doRequestSearch(true);
     } else {
       wx.showToast({
         title: '已全部加载完成',
-        duration: 1000
+        duration: 2000
       })
     }
   },
+
+ 
 
 
 
 
   // 执行查询
-  doRequestSearch: function() {
+  doRequestSearch: function(isAddData) {
 
 
     console.log("模糊查询")
@@ -160,11 +161,15 @@ Page({
     } else {
 
     }
-
+    console.log(page.data.pagination)
     app.helper.fn.request({
       url: app.helper.urls.comm.listEmpInfos,
       method: 'POST',
-      data: app.helper.fn.getRequestWrap(params),
+      data: {
+        uid: getApp().globals.userInfo ? getApp().globals.userInfo.id : '',
+        page: page.data.pagination.page,
+        limit: page.data.pagination.limit,
+        data: params},
       isOnlyData:false,
       loading: '加载中..',
       complete: function(datas) {
@@ -181,39 +186,52 @@ Page({
           wx.showToast({
             title: '未查询到数据',
             icon: 'none',
-            duration: 1000
+            duration: 2000
           });
           page.setData({
             noReasult: true,
 
-            employees: datas.data
+            employees: datas.data,
+            
           });
+         
           return;
         }
+        
 
         for(var i=0;i<datas.data.length;i++){
           datas.data[i].nickName = decodeURI(datas.data[i].nickName);
         }
 
+        var employees = datas.data;
+        if (isAddData){
+          employees = page.data.employees;
+          for (var i = 0; i < datas.data.length; i++) {
+            for(var j=0; j < employees.length; j++){
+              if(employees[j].id == datas.data[i].id){
+                console.debug("有东西重复");
+                console.debug(employees[j]);
+              }
+            }
+          }
+          
+          employees.push.apply(employees, datas.data);
+        }
+        
         page.setData({
           noReasult: false,
           
-          employees: datas.data
+          employees: employees,
+          pagination: {
+            page:page.data.pagination.page,
+            limit: page.data.pagination.limit,
+            total: datas.total
+          }
         });
       }
     })
   },
 
-
-
-
-
-  // 呼叫报案人
-  bindCall: function(e) {
-    wx.makePhoneCall({
-      phoneNumber: e.target.dataset.phoneNumber
-    })
-  },
 
   bindPreview: function(e){
     console.debug(e);

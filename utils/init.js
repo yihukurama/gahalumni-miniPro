@@ -71,7 +71,7 @@ const loginOnServer = (complete) => {
           url: app.helper.urls.comm.loginByOpenId,
           method: 'POST',
           data: app.helper.fn.getRequestWrap(data),
-          loading: null,
+          loading: '登录中...',
           complete: function (data) {
             var userInfo = data ? data : null;
             app.globals.wxSession = wxSession;

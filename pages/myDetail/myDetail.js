@@ -7,7 +7,7 @@ Page({
   data: {
     userInfo: app.globals.userInfo,
     showTopTips: false,
-
+    summitDisable:false,
     radioItems: [
       { name: '私密（仅自己可见）', value: '1' },
       { name: '认证校友可见', value: '2', checked: true }
@@ -290,7 +290,9 @@ Page({
 
   bindFormSubmit: function (e) {
     var page = this;
-
+    page.setData({
+      summitDisable: true,
+    })
     page.doCreateFormId(e);
 
     var userInfo = page.data.userInfo;
@@ -355,6 +357,9 @@ Page({
           })
           app.globals.userInfo.emp = datas;
           app.globals.userInfo.employeeName = datas.realName;
+          page.setData({
+            summitDisable: false,
+          })
         } else {
           wx.showModal({
             title: '提示',

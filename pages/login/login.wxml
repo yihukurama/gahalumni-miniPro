@@ -24,7 +24,7 @@
   </view>
   <!--按钮-->
   <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" loading="{{loginLoading}}" bindgetuserinfo="bindLogin" open-type="getUserInfo">授权登录</button>
+    <button disabled="{{summitDisable}}" class="weui-btn" type="primary" loading="{{loginLoading}}" bindgetuserinfo="bindLogin" open-type="getUserInfo">授权登录</button>
   </view>
 
 </form>

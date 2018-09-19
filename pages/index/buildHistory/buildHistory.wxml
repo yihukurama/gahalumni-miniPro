@@ -9,7 +9,7 @@
 
         <view class='weui-cell-time'>{{item.time}}</view>
         <view class='weui-cell-name'>{{item.name}}</view>
-        <view class='weui-cell-event'>{{item.event}}</view>
+        <view style="white-space:pre-wrap" class='weui-cell-event'>{{item.event}}</view>
       </view>
 
     </view>

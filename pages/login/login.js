@@ -2,6 +2,7 @@ Page({
   data: {
     phoneNo: '',
     verifyCode: '',
+    summitDisable:false,
     smsStatus: { text: "获取验证码", disabled: false }
   },
 
@@ -11,6 +12,10 @@ Page({
 
     // 用户登录
     bindLogin: function (options) {
+      var page = this;
+      page.setData({
+        summitDisable:true
+      });
       getApp().init.loginOnServer(function (wxSession, userInfo) {
         if (wxSession && userInfo) {
           getApp().init.loadDatas(false, function () {
@@ -20,6 +25,9 @@ Page({
               wx.redirectTo({ url: '/pages/index/index' });
               return;
             }
+            page.setData({
+              summitDisable: false
+            });
             getApp().init.redirectBySceneParams(options.scene, true);
           })
         }
