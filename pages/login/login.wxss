@@ -1,8 +1,8 @@
 page{background-color:#dde7f3}
 
 /*标题*/
-.login_title{display:flex;margin-top:30rpx;margin-bottom:30rpx;flex-direction:row;align-items:center;justify-content:center}
-.login_title image{width:600rpx; height: 262rpx;}
+.login_title{display:flex;margin-top:70rpx;margin-bottom:1rpx;flex-direction:row;align-items:center;justify-content:center}
+.login_title image{width:283rpx; height: 283rpx;}
 
 
 /*表单*/

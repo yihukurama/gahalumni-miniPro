@@ -1,6 +1,6 @@
 <!--登录图片-->
 <view class='login_title'>
-  <image></image>
+  <image src='../../libs/imgs/im_item_kckp.png'></image>
 </view>
 
 <!--登录表单-->
