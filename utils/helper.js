@@ -28,6 +28,7 @@ const urls = {
     loadPreview: hosts.comm.host + "/MiniProV1Controller/loadPreview", // 查看校友详情
     createFormId: hosts.comm.host + "/BusinessBaseController/Formids/create", // 创建formId
     createFeedBack: hosts.comm.host + "/BusinessBaseController/Feedback/create", // 创建留言
+    updateWxuser: hosts.comm.host + "/BusinessBaseController/Wxuser/update", // 更新微信用户
   }
 }
 

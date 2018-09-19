@@ -347,11 +347,22 @@ Page({
       complete: function (datas) {
         console.log(datas)
         if (datas) {
-          wx.showModal({ title: '提醒', content: '操作成功', showCancel: false });
+          wx.showModal({
+            title: '提示',
+            content: '操作成功',
+            showCancel: false,
+            
+          })
           app.globals.userInfo.emp = datas;
           app.globals.userInfo.employeeName = datas.realName;
         } else {
-          wx.showModal({ title: '提醒', content: '操作失败', showCancel: false });
+          wx.showModal({
+            title: '提示',
+            content: '操作失败',
+            showCancel: false,
+
+          })
+
         }
 
       }

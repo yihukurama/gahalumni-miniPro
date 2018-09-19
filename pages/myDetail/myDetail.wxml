@@ -51,7 +51,9 @@
           <view class="weui-label">手机号</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" type="number" placeholder="授权校友可能通过手机号查询" bindinput="bindinput" data-input-member='phoneNo' value='{{phoneNo}}' />
+
+          <input class="weui-input" placeholder="请输入手机" bindinput="bindinput" type="number" data-input-member='phoneNo' value='{{phoneNo}}' />
+
         </view>
       </view>
       <view class="weui-cell weui-cell_input weui-cell_vcode">

@@ -92,7 +92,7 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <textarea class="weui-textarea" bindinput="bindinput" style="height: 8.3em" data-input-member='note' value='{{previewData.employeeEntity.note}}' />
+          <textarea disabled="true" class="weui-textarea" bindinput="bindinput" style="height: 8.3em" data-input-member='note' value='{{previewData.employeeEntity.note}}' />
         </view>
       </view>
     </view>
@@ -103,5 +103,8 @@
         <button class="weui-btn" type="primary"  formType="submit">联系校友</button>
       </view>
     </form>
+    <view wx:if="{{!previewData.wxuserEntity.auth && userInfo.id=='97d4c2eebb1711e891f05254001d6b58'}}" class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap='bindCheck'>认证校友</button>
+      </view>
   </view>
 </view>
