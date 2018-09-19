@@ -1,7 +1,7 @@
 page{background-color:#dde7f3}
 
 /*标题*/
-.login_title{display:flex;margin-top:70rpx;margin-bottom:1rpx;flex-direction:row;align-items:center;justify-content:center}
+.login_title{display:flex;margin-top:180rpx;margin-bottom:1rpx;flex-direction:row;align-items:center;justify-content:center}
 .login_title image{width:283rpx; height: 283rpx;}
 
 

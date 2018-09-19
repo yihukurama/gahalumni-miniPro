@@ -206,15 +206,6 @@ Page({
         var employees = datas.data;
         if (isAddData){
           employees = page.data.employees;
-          for (var i = 0; i < datas.data.length; i++) {
-            for(var j=0; j < employees.length; j++){
-              if(employees[j].id == datas.data[i].id){
-                console.debug("有东西重复");
-                console.debug(employees[j]);
-              }
-            }
-          }
-          
           employees.push.apply(employees, datas.data);
         }
         
