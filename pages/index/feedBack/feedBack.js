@@ -23,7 +23,6 @@ Page({
       url: app.helper.urls.comm.createFormId,
       method: 'POST',
       data: app.helper.fn.getRequestWrap({ openId: app.globals.wxSession.openid, formId: e.detail.formId, status: 1 }),
-      loading: '数据处理中..',
       complete: function (datas) {
       }
     })
