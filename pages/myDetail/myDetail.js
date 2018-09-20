@@ -297,7 +297,9 @@ Page({
 
     var userInfo = page.data.userInfo;
     if(!page.doCheckUpdateDatas()){
-
+      page.setData({
+        summitDisable: false,
+      })
       return;
     }
     
@@ -357,9 +359,7 @@ Page({
           })
           app.globals.userInfo.emp = datas;
           app.globals.userInfo.employeeName = datas.realName;
-          page.setData({
-            summitDisable: false,
-          })
+          
         } else {
           wx.showModal({
             title: '提示',
@@ -369,7 +369,9 @@ Page({
           })
 
         }
-
+        page.setData({
+          summitDisable: false,
+        })
       }
     })
 
