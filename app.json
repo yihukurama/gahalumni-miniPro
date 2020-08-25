@@ -14,7 +14,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1B81E5",
     "navigationBarTitleText": "国华校友信息系统小程序版",
-    "navigationBarTextStyle": "light"
+    "navigationBarTextStyle": "white"
   },
   "networkTimeout": {
     "request": 6000,
@@ -22,5 +22,6 @@
     "uploadFile": 30000,
     "downloadFile": 30000
   },
-  "debug": false
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
 }
